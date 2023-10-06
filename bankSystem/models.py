@@ -52,8 +52,8 @@ class Client(models.Model):
 
 
 class Account(models.Model):
-    bank = models.ForeignKey(Bank, on_delete=models.CASCADE)
     clients = models.ForeignKey(Client, on_delete=models.CASCADE)
+    bank = models.ForeignKey(Bank, on_delete=models.CASCADE)
     account_type = models.CharField(max_length=100)
     open_date = models.CharField(max_length=100)
 
