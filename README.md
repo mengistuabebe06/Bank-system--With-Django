@@ -52,7 +52,7 @@ Now lets create an application called `api` inside our project `banksystem`. [To
 
 Run the following command in your root folder where `manage.py` lives.
 
-`./manage.py startapp api`
+`./manage.py startapp bankSystem`
 
 The app `api` will be created and your whole project folder structure should look like this.
 
@@ -76,7 +76,7 @@ The app `api` will be created and your whole project folder structure should loo
 └── manage.py
 ```
 
-Include `api` application in django `settings.py`
+Include `bankSystem` application in django `settings.py`
 
 ```
   INSTALLED_APPS = [
