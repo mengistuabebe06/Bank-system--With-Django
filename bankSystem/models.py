@@ -57,6 +57,17 @@ class Account(models.Model):
     account_type = models.CharField(max_length=100)
     open_date = models.CharField(max_length=100)
 
+    @property
+    def balance(self):
+        deposites = sum(
+            [deposite for deposite in Deposite.objects.filter(account=self.id)]
+        )
+        withdraws = sum(
+            [withdraw for withdraw in Withdraw.objects.filter(account=self.id)]
+        )
+        total = deposites - withdraws
+        return total
+
     def json_object(self):
         return {
             "clients": self.clients,

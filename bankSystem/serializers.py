@@ -46,6 +46,16 @@ class AccountSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class AccountDetailSerializer(serializers.ModelSerializer):
+    clients = ClientSerializer()
+    bank = BankSerializer()
+    balance = serializers.DecimalField(max_digits=5, decimal_places=2)
+
+    class Meta:
+        model = Account
+        fields = ["clients", "bank", "balance", "open_date"]
+
+
 class DepositeSerializer(serializers.ModelSerializer):
     # account = AccountSerializer()
 

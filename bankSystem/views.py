@@ -89,3 +89,18 @@ class AccountListAPIView(generics.ListCreateAPIView):
     # give persmmision
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
+
+
+class DepositeAPIView(generics.ListCreateAPIView):
+    queryset = Deposite.objects.all()
+    serializer_class = DepositeSerializer
+
+
+class WithDrawAPIView(generics.ListCreateAPIView):
+    queryset = Withdraw.objects.all()
+    serializer_class = WithdrawSerializer
+
+
+class AccountDetailAPIView(generics.RetrieveAPIView):
+    queryset = Account.objects.all()
+    serializer_class = AccountDetailSerializer
