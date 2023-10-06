@@ -59,6 +59,7 @@ class Account(models.Model):
 
     def json_object(self):
         return {
+            "clients": self.clients,
             "open_date": self.open_date,
             "account_type": self.account_type,
             "bank": self.bank,

@@ -34,7 +34,8 @@ class AccountCreateAPIView(APIView):
     def post(self, request):
         try:
             # Extract data from request
-            fullname = request.data.get("fullname")
+            # fullname = request.data["name"] or fullname = request.data.get("name")
+            fullname = request.data.get("name")
             address = request.data.get("address")
             bank_id = request.data.get("bank")
             account_type = request.data.get("account_type")
@@ -48,7 +49,7 @@ class AccountCreateAPIView(APIView):
                 )
 
             # Create client
-            client = Client.objects.create(
+            clients = Client.objects.create(
                 name=fullname,
                 address=address,
             )
@@ -63,7 +64,7 @@ class AccountCreateAPIView(APIView):
 
             # Create account
             account = Account.objects.create(
-                clients=client,
+                clients=clients,
                 bank=bank,
                 account_type=account_type,
                 open_date=open_date,
@@ -77,3 +78,14 @@ class AccountCreateAPIView(APIView):
             return Response(
                 {"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+    # def get(self, request):
+    #     queryset = Account.objects.all()
+    #     serializer = AccountSerializer(queryset)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class AccountListAPIView(generics.ListCreateAPIView):
+    # give persmmision
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer

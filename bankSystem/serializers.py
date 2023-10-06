@@ -38,8 +38,9 @@ class ClientManagerSerializer(serializers.ModelSerializer):
 
 
 class AccountSerializer(serializers.ModelSerializer):
-    # client = ClientSerializer()
-    # bank = BankSerializer()
+    clients = ClientSerializer()
+    bank = BankSerializer()
+
     class Meta:
         model = Account
         fields = "__all__"
