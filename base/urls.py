@@ -9,6 +9,8 @@ from drf_spectacular.views import (
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("bankSystem.urls")),
+    # yene pay integration
+    path("yenepay/", include("yenepay.urls")),
     # documnetation using swagger and spectular
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(

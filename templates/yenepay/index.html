@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payement Integration With Yene Pay Uisng Django(DRF)</title>
+  </head>
+  <body>
+    <h2>Payement Integration With Yene Pay Uisng Django(DRF)</h2>
+
+    <form action="https://test.yenepay.com" method="POST">
+      {% csrf_token %} {% for x,y in obj.items %}
+      <input type="hidden" name="{{x}}" value="{{y}}" /><br />
+      {% endfor %} 15.0 ETB
+      <input type="submit" value="Pay With Yene Pay" /><br />
+    </form>
+
+    <p>Note that the form itself is not visible.</p>
+
+    <p>
+      Also note that the default width of text input fields is 20 characters.
+    </p>
+  </body>
+</html>
