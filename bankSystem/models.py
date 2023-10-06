@@ -8,6 +8,10 @@ class Branch(models.Model):
     address = models.CharField(max_length=255)
     branch_code = models.CharField(max_length=255)
 
+    # to edit the name of the branch in adamin dasheborad
+    class Meta:
+        verbose_name_plural = "Branches"
+
     def json_object(self):
         return {"name": self.name, "address": self.address}
 
